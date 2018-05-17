@@ -1,0 +1,41 @@
+<html>
+    <head>
+      <title>Vacation Photos</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!--<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">-->
+      <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+      <!--<link href="css/styles.css" rel="stylesheet">-->
+    </head>
+    <body>
+      <div class="container-fluid">
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/"><%=title%></a>
+            </div>
+            <ul class="nav navbar-nav" role="navigation">
+              <%for(let i=0; i < nav.length; i++){%>
+                <li><a href='<%= nav[i].link %>'><%= nav[i].title;%></a></li>
+              <%}%>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="container">
+        <h3>Firmata Web</h3>
+        <form method="post" action="switch/on">
+          <input type="submit" value="Turn on">
+          <input type="submit" value="Turn off" formaction="switch/off">
+        </form>
+      </div>
+      
+      <!-- script references -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
