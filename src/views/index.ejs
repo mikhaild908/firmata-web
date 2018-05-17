@@ -9,6 +9,7 @@
         <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
       <!--<link href="css/styles.css" rel="stylesheet">-->
+      
     </head>
     <body>
       <div class="container-fluid">
@@ -29,9 +30,22 @@
       <div class="container">
         <h2>LED controlled by Node.js</h2>
         <form method="post" action="/switch/on">
-          <input type="submit" value="On">
-          <input type="submit" value="Off" formaction="/switch/off">
+          <input type="submit" value="On" class="btn btn-primary btn-lg">
+          <input type="submit" value="Off" formaction="/switch/off" class="btn btn-secondary btn-lg">
         </form>
+        
+        <% var message = 'Off';%>
+        <% var messageClass = 'label-default';%>
+        <%if (onOrOff) {%>
+          <%message = 'On'%>
+          <%messageClass = 'label-warning'%>
+        <%}%>
+        <%if (!onOrOff) {%> 
+          <%message = 'Off';%>
+          <%messageClass = 'label-default'%>
+        <%}%>
+        
+        <h3><span id="message" class="label <%=messageClass%>">LED is <%=message%></span></h3>
       </div>
       
       <!-- script references -->

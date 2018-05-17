@@ -23,7 +23,7 @@ app.use('/switch', applianceRouter);
 
 app.get('/', function(req, res){
     //res.sendFile(path.join(__dirname, 'views/index.html'));
-    res.render('index', { nav, title: title });
+    res.render('index', { nav, title: title, onOrOff: false });
 });
 
 app.listen(port, function(err){
