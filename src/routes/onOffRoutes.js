@@ -26,9 +26,8 @@ function setupBoard() {
 
 setupBoard();
 
-function router(nav) {
+function router(nav, title) {
     const onOffRouter = express.Router();
-    const title = 'Firmata Web';
     
     onOffRouter.route('/')
         .get((req, res) => {
@@ -40,13 +39,18 @@ function router(nav) {
             if(boardInitialized) {
                 board.digitalWrite(13, board.HIGH);
             }
-            res.send("On");
+            
+            //res.send("On");
+            res.render('index', { nav, title: title } );
         })
         .post((req, res) => {
-            res.send("On");
             if(boardInitialized) {
                 board.digitalWrite(13, board.HIGH);
+                
             }
+
+            //res.send("On");
+            res.render('index', { nav, title: title } );
         });
     
     onOffRouter.route('/off')
@@ -54,13 +58,15 @@ function router(nav) {
             if(boardInitialized) {
                 board.digitalWrite(13, board.LOW);
             }
-            res.send("Off");
+            
+            res.render('index', { nav, title: title } );
         })
         .post((req, res) => {
             if(boardInitialized) {
                 board.digitalWrite(13, board.LOW);
             }
-            res.send("Off");
+
+            res.render('index', { nav, title: title } );
         });
 
     return onOffRouter;
